@@ -10,50 +10,63 @@
 
 /* Body Styles */
 body {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     background: #f8f9fa;
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    padding: 2rem;
+    font-family: Arial, sans-serif;
 }
 
-/* Main Container */
-.container {
-    text-align: center;
-    max-width: 1200px;
-    padding: 2rem;
-}
-
-/* Flowing Gradient Heading */
+/* Flowing Gradient Heading - WORKING VERSION */
 .flowing-heading {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: 5rem;
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    text-align: center;
     
-    /* Gradient Background */
-    background: linear-gradient(90deg, 
-        #ff0000, #ff7700, #ffdd00, 
-        #00ff00, #0088ff, #0000ff, 
-        #ff00ff, #ff0000);
-    background-size: 400% 400%;
+    /* Gradient Background - Make sure colors are properly separated */
+    background: linear-gradient(
+        90deg,
+        #ff0000, #ff7700, #ffdd00,
+        #00ff00, #0088ff, #0000ff,
+        #ff00ff, #ff0000  /* Last color should have stop position */
+    );
+    background-size: 200% 200%; /* Adjusted for better visibility */
     
-    /* Text Clipping */
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    /* Critical text clipping properties */
+    -webkit-background-clip: text !important; /* Force Webkit browsers */
+    background-clip: text !important;
+    color: transparent !important; /* Must be transparent */
     
-    /* Animation */
-    animation: gradientFlow 12s ease infinite;
+    /* Animation - ensure it's properly applied */
+    animation: gradientFlow 8s linear infinite;
+}
+
+/* Keyframes must be properly defined */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .flowing-heading {
+        font-size: 3rem;
+    }
+}
     
-    /* Additional Effects */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    line-height: 1.1;
+/* Text Clipping */
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+    
+/* Animation */
+animation: gradientFlow 12s ease infinite;
+    
+/* Additional Effects */
+text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+margin-bottom: 2rem;
+line-height: 1.1;
 }
 
 /* Gradient Animation */
