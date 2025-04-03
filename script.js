@@ -3,7 +3,7 @@ import gsap from 'https://cdn.skypack.dev/gsap@3.12.0'
 import ScrollTrigger from 'https://cdn.skypack.dev/gsap@3.12.0/ScrollTrigger'
 
 const config = {
-  theme: 'dark',
+  theme: 'system',
   animate: true,
   snap: true,
   start: gsap.utils.random(0, 100, 1),
@@ -34,29 +34,31 @@ const update = () => {
   document.documentElement.style.setProperty('--end', config.end)
 
   if (!config.animate) {
-    chromaEntry?.scrollTrigger.disable(true, false)
-    chromaExit?.scrollTrigger.disable(true, false)
+    chromaEntry?.scrollTrigger?.disable(true, false)
+    chromaExit?.scrollTrigger?.disable(true, false)
     dimmerScrub?.disable(true, false)
     scrollerScrub?.disable(true, false)
     gsap.set(items, { opacity: 1 })
     gsap.set(document.documentElement, { '--chroma': 0 })
   } else {
     gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) })
-    dimmerScrub.enable(true, true)
-    scrollerScrub.enable(true, true)
-    chromaEntry.scrollTrigger.enable(true, true)
-    chromaExit.scrollTrigger.enable(true, true)
+    dimmerScrub?.enable(true, true)
+    scrollerScrub?.enable(true, true)
+    chromaEntry?.scrollTrigger?.enable(true, true)
+    chromaExit?.scrollTrigger?.enable(true, true)
   }
 }
 
 const sync = (event) => {
   if (
     !document.startViewTransition ||
-    event.target.controller.view.labelElement.innerText !== 'Theme'
-  )
+    event?.target?.controller?.view?.labelElement?.innerText !== 'Theme'
+  ) {
     return update()
+  }
   document.startViewTransition(() => update())
 }
+
 ctrl.addBinding(config, 'animate', {
   label: 'Animate',
 })
@@ -81,7 +83,6 @@ ctrl.addBinding(config, 'scroll', {
 ctrl.addBinding(config, 'debug', {
   label: 'Debug',
 })
-
 ctrl.addBinding(config, 'theme', {
   label: 'Theme',
   options: {
@@ -94,12 +95,9 @@ ctrl.addBinding(config, 'theme', {
 ctrl.on('change', sync)
 
 // backfill the scroll functionality with GSAP
-if (
-  !CSS.supports('(animation-timeline: scroll()) and (animation-range: 0% 100%)')
-) {
+if (!CSS.supports('(animation-timeline: scroll()) and (animation-range: 0% 100%)')) {
   gsap.registerPlugin(ScrollTrigger)
 
-  // animate the items with GSAP if there's no CSS support
   items = gsap.utils.toArray('ul li')
 
   gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) })
@@ -128,7 +126,6 @@ if (
     scrub: 0.2,
   })
 
-  // register scrollbar changer
   const scroller = gsap.timeline().fromTo(
     document.documentElement,
     {
@@ -165,6 +162,7 @@ if (
       },
     }
   )
+  
   chromaExit = gsap.fromTo(
     document.documentElement,
     {
@@ -182,5 +180,5 @@ if (
     }
   )
 }
-// run it
+
 update()
