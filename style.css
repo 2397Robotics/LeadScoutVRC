@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import url('https://unpkg.com/normalize.css') layer(normalize);
 
-@layer normalize, base, demo, stick, effect, srollbar, debug;
+@layer normalize, base, demo, stick, effect, scrollbar, debug;
 
 @layer debug {
   [data-debug='true'] li {
@@ -34,13 +34,12 @@
       animation-name: change, chroma-on, chroma-off;
       animation-fill-mode: both;
       animation-timing-function: linear;
-      /* animation-timeline: scroll(root); */
       animation-range: entry 50% exit 50%, entry 40% entry 50%,
         exit 30% exit 40%;
       animation-timeline: --list;
-      ul {
-        view-timeline: --list;
-      }
+    }
+    [data-sync-scrollbar='true'][data-animate='true'] ul {
+      view-timeline: --list;
     }
   }
 
@@ -75,7 +74,9 @@
     --lightness: 65%;
   }
   @media (prefers-color-scheme: dark) {
-    --lightness: 75%;
+    :root {
+      --lightness: 75%;
+    }
   }
   ul {
     --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
@@ -88,23 +89,22 @@
   }
 
   @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
-    [data-animate='true'] {
-      li {
-        opacity: 0.2;
-        animation-name: brighten;
-
-        &:first-of-type {
-          --start-opacity: 1;
-        }
-        &:last-of-type {
-          --brightness: 1;
-          --end-opacity: 1;
-        }
-        animation-fill-mode: both;
-        animation-timing-function: linear;
-        animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
-        animation-timeline: view();
-      }
+    [data-animate='true'] li {
+      opacity: 0.2;
+      animation-name: brighten;
+    }
+    [data-animate='true'] li:first-of-type {
+      --start-opacity: 1;
+    }
+    [data-animate='true'] li:last-of-type {
+      --brightness: 1;
+      --end-opacity: 1;
+    }
+    [data-animate='true'] li {
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+      animation-timeline: view();
     }
 
     @keyframes brighten {
@@ -136,10 +136,9 @@
     place-items: center;
     width: 100%;
     justify-content: center;
-
-    h2 {
-      --font-level: 6;
-    }
+  }
+  section:last-of-type h2 {
+    --font-level: 6;
   }
   main {
     width: 100%;
@@ -162,10 +161,9 @@
 
   [data-snap='true'] {
     scroll-snap-type: y proximity;
-
-    li {
-      scroll-snap-align: center;
-    }
+  }
+  [data-snap='true'] li {
+    scroll-snap-align: center;
   }
 
   h2,
@@ -308,7 +306,6 @@
     width: 75%;
   }
 
-  /* Utilities */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -324,4 +321,7 @@
 
 div.tp-dfwv {
   position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
 }
