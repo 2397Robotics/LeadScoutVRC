@@ -1,51 +1,99 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans&display=swap');
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400;700&display=swap');
 
-/* Make ALL headings centered and large */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin: 0.5em 0;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Scale heading sizes */
-h1 {
-    font-size: 10rem; 
+/* Body Styles */
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: #f8f9fa;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+/* Main Container */
+.container {
+    text-align: center;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+/* Flowing Gradient Heading */
+.flowing-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    
+    /* Gradient Background */
+    background: linear-gradient(90deg, 
+        #ff0000, #ff7700, #ffdd00, 
+        #00ff00, #0088ff, #0000ff, 
+        #ff00ff, #ff0000);
+    background-size: 400% 400%;
+    
+    /* Text Clipping */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    
+    /* Animation */
+    animation: gradientFlow 12s ease infinite;
+    
+    /* Additional Effects */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    line-height: 1.1;
 }
 
-
-h2 {
-    font-size: 3.5rem;  /* 56px */
+/* Gradient Animation */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-h3 {
-    font-size: 2.75rem; /* 44px */
+/* Color Variants */
+.flowing-heading.ocean {
+    background: linear-gradient(90deg, 
+        #00c6ff, #0072ff, #0052d9, 
+        #0037a8, #002677, #0000ff);
 }
 
-h4 {
-    font-size: 2.25rem; /* 36px */
+.flowing-heading.fire {
+    background: linear-gradient(90deg, 
+        #ff0000, #ff6600, #ffcc00, 
+        #ff6600, #ff0000);
 }
 
-h5 {
-    font-size: 1.75rem; /* 28px */
-}
-
-h6 {
-    font-size: 1.5rem;  /* 24px */
-}
-
-/* Body text for contrast */
-body {
-    font-family: 'Open Sans', sans-serif;
+/* Supporting Content */
+.subheading {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 3rem;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .flowing-heading {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .subheading {
+        font-size: 1.2rem;
+    }
 }
