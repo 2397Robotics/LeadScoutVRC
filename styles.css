@@ -19,7 +19,7 @@ body {
 }
 
 .flowing-heading {
-    font-size: 30rem; 
+    font-size: 40rem; 
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
@@ -35,7 +35,12 @@ body {
     color: transparent !important; /* Must be transparent */
     
     /* Animation - ensure it's properly applied */
-    animation: pageLoadHeading 2s linear;
+    animation: 
+        pageLoadHeading 2s linear forwards, /* Runs once */
+        gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
+    animation-fill-mode: forwards; /* Ensures the animation stays at the end state */
+    animation-delay: 0s, 0s; /* No delay for both animations */
+    
 }
 @keyframes pageLoadHeading {
     0% { font-size: 30rem; text-align: center; }
