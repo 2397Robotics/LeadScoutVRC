@@ -19,7 +19,7 @@ body {
 }
 
 .flowing-heading {
-    font-size: 30rem; 
+    font-size: 25rem; 
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
@@ -36,7 +36,7 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: 
-        pageLoadHeading 2s linear forwards, /* Runs once */
+        pageLoadHeading 1s linear forwards, /* Runs once */
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
     animation-fill-mode: forwards; /* Ensures the animation stays at the end state */
     animation-delay: 0s, 0s; /* No delay for both animations */
@@ -48,14 +48,14 @@ body {
 
 @keyframes pageLoadHeading {
 0% { 
-    font-size: 30rem; 
+    font-size: 25rem; 
     top: 50%; /* Start in the middle of the screen */
     transform: translate(-50%, -50%); /* Centered */
 }
 100% { 
     font-size: 7rem; 
     top: 10%; /* Move to the top middle of the screen */
-    transform: translate(-50%, 0); /* Horizontally centered, no vertical offset */
+    transform: translate(-50%, 10%); /* Horizontally centered, no vertical offset */
 }
 }
 
