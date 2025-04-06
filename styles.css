@@ -36,7 +36,6 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: pageLoadHeading 2s linear;
-    animation: gradientFlow 8s linear infinite;
 }
 @keyframes pageLoadHeading {
     0% { font-size: 40em; }
