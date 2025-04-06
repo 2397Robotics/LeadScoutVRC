@@ -16,10 +16,11 @@ body {
     min-height: 100vh;
     background: #f8f9fa;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
 .flowing-heading {
-    font-size: 25rem; 
+    font-size: 30rem; 
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
@@ -36,7 +37,7 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: 
-        pageLoadHeading 1s linear forwards, /* Runs once */
+        pageLoadHeading 2s linear forwards, /* Runs once */
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
     animation-fill-mode: forwards; /* Ensures the animation stays at the end state */
     animation-delay: 0s, 0s; /* No delay for both animations */
@@ -48,13 +49,13 @@ body {
 
 @keyframes pageLoadHeading {
 0% { 
-    font-size: 25rem; 
+    font-size: 30rem; 
     top: 50%; /* Start in the middle of the screen */
     transform: translate(-50%, -50%); /* Centered */
 }
 100% { 
     font-size: 7rem; 
-    top: 0%; /* Move to the top middle of the screen */
+    top: 10%; /* Move to the top middle of the screen */
     transform: translate(-50%, 0); /* Horizontally centered, no vertical offset */
 }
 }
@@ -63,6 +64,23 @@ body {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+.expanding-heading {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0; /* Start with no width */
+    height: 10px; /* Height of the bar */
+    background: #d2e8ff; /* Bar color */
+    transform: translateX(-50%); /* Center horizontally */
+    animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
+}
+
+@keyframes extendBar {
+    0% { width: 0; /* Start with no width */}
+    50% { width: 0; /* Stay at no width */}
+    100% { width: 100vw; /* Extend to full screen width */}
 }
 
 /* Varients */
