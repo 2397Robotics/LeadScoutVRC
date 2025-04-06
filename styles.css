@@ -54,7 +54,7 @@ body {
 }
 100% { 
     font-size: 7rem; 
-    top: 5%; /* Move to the top middle of the screen */
+    top: 0%; /* Move to the top middle of the screen */
     transform: translate(-50%, 0); /* Horizontally centered, no vertical offset */
 }
 }
