@@ -23,9 +23,9 @@ body {
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
-        #ff0000, #ff7700, #ffdd00,
-        #00ff00, #0088ff, #0000ff,
-        #ff00ff, #ff0000  /* Last color should have stop position */
+        #ff8181, #ffb779, #ffed7b,
+        #81ff81, #7cc2ff, #7e7eff,
+        #ff7cff, #ff8181  /* Last color should have stop position */
     );
     background-size: 200% 200%; /* Adjusted for better visibility */
     
@@ -40,11 +40,23 @@ body {
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
     animation-fill-mode: forwards; /* Ensures the animation stays at the end state */
     animation-delay: 0s, 0s; /* No delay for both animations */
-    
+    position: absolute; /* Allows movement within the viewport */
+    left: 50%; /* Start horizontally centered */
+    top: 50%; /* Start vertically centered */
+    transform: translate(-50%, -50%); /* Center the element */
 }
+
 @keyframes pageLoadHeading {
-    0% { font-size: 30rem; text-align: center; }
-    100% {font-size: 7rem; text-align:center; vertical-align: text-top; }
+0% { 
+    font-size: 30rem; 
+    top: 50%; /* Start in the middle of the screen */
+    transform: translate(-50%, -50%); /* Centered */
+}
+100% { 
+    font-size: 7rem; 
+    top: 10%; /* Move to the top middle of the screen */
+    transform: translate(-50%, 0); /* Horizontally centered, no vertical offset */
+}
 }
 
 @keyframes gradientFlow {
