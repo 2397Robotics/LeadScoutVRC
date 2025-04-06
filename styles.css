@@ -20,9 +20,6 @@ body {
 
 /* Flowing Gradient Heading - WORKING VERSION */
 .flowing-heading {
-    font-size: 5rem;
-    font-weight: 800;
-    text-align: center;
     
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
