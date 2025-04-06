@@ -18,7 +18,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Flowing Gradient Heading - WORKING VERSION */
 .flowing-heading {
     
     /* Gradient Background - Make sure colors are properly separated */
@@ -36,7 +35,7 @@ body {
     color: transparent !important; /* Must be transparent */
     
     /* Animation - ensure it's properly applied */
-    animation: pageLoadHeaing 2s linear;
+    animation: pageLoadHeading 2s linear;
     animation: gradientFlow 8s linear infinite;
 }
 
