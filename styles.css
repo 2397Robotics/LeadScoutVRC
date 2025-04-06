@@ -36,7 +36,7 @@ body {
     color: transparent !important; /* Must be transparent */
     
     /* Animation - ensure it's properly applied */
-    animation: pageLoadHeaing 2s linear finite;
+    animation: pageLoadHeaing 2s linear;
     animation: gradientFlow 8s linear infinite;
 }
 
