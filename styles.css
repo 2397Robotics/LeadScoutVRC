@@ -37,9 +37,8 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: 
-        pageLoadHeading 2s linear forwards, /* Runs once */
+        pageLoadHeading 1s linear forwards, /* Runs once */
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
-    animation-fill-mode: forwards; /* Ensures the animation stays at the end state */
     animation-delay: 0s, 0s; /* No delay for both animations */
     position: absolute; /* Allows movement within the viewport */
     left: 50%; /* Start horizontally centered */
@@ -55,7 +54,7 @@ body {
 }
 100% { 
     font-size: 7rem; 
-    top: 10%; /* Move to the top middle of the screen */
+    top: 0%; /* Move to the top middle of the screen */
     transform: translate(-50%, 0); /* Horizontally centered, no vertical offset */
 }
 }
