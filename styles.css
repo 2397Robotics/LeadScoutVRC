@@ -19,7 +19,7 @@ body {
 }
 
 .flowing-heading {
-    
+    font-size: 40em; 
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
