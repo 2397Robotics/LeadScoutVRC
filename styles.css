@@ -65,7 +65,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-.expanding-heading {
+.header-bar {
     position: absolute;
     top: 0;
     left: 50%;
