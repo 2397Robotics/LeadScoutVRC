@@ -19,7 +19,7 @@ body {
 }
 
 .flowing-heading {
-    font-size: 40rem; 
+    font-size: 30rem; 
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
@@ -44,7 +44,6 @@ body {
 }
 @keyframes pageLoadHeading {
     0% { font-size: 30rem; text-align: center; }
-    50% { font-size: 15rem; }
     100% {font-size: 7rem; text-align:center; vertical-align: text-top; }
 }
 
