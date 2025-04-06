@@ -19,7 +19,7 @@ body {
 }
 
 .flowing-heading {
-    font-size: 40em; 
+    font-size: 40rem; 
     /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
@@ -38,9 +38,9 @@ body {
     animation: pageLoadHeading 2s linear;
 }
 @keyframes pageLoadHeading {
-    0% { font-size: 40em; }
-    50% { font-size: 20em; }
-    100% {font-size: 10em; }
+    0% { font-size: 40rem; }
+    50% { font-size: 20rem; }
+    100% {font-size: 10rem; }
 }
 
 @keyframes gradientFlow {
