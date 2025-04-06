@@ -98,9 +98,9 @@ line-height: 1.1;
 }
 
 @keyframes pageLoadHeading {
-    0% { font-size: 40rem; }
-    50% { font-size: 20rem; }
-    100% {font-size: 10rem; }
+    0% { font-size: 40em; }
+    50% { font-size: 20em; }
+    100% {font-size: 10em; }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
