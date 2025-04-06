@@ -71,7 +71,7 @@ body {
     left: 50%;
     width: 0; /* Start with no width */
     height: 10px; /* Height of the bar */
-    background: #d2e8ff; /* Bar color */
+    background: #000000; /* Bar color */
     transform: translateX(-50%); /* Center horizontally */
     animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
 }
