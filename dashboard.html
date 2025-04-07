@@ -32,23 +32,24 @@
 
     <script src="sidebar.js"></script>
     <script src="profile.js"></script>
-   <script>
-    // Display the logged-in user's team number
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    const teamNumberDisplay = document.getElementById('team-number-display');
+<script>
+// Display the logged-in user's team number
+const storedUser = JSON.parse(localStorage.getItem('user'));
+const teamNumberDisplay = document.getElementById('team-number-display');
 
-    if (storedUser && storedUser.teamNumber) {
-        teamNumberDisplay.textContent = `Team Number: ${storedUser.teamNumber}`;
-    } else {
-        teamNumberDisplay.textContent = 'No team number found. Please log in.';
+if (storedUser && storedUser.teamNumber) {
+    teamNumberDisplay.textContent = `Team Number: ${storedUser.teamNumber}`;
+} else {
+    teamNumberDisplay.textContent = 'No team number found. Please log in.';
+}
+</script>
+
+<script>
+    // Log out function
+    function logout() {
+        localStorage.removeItem('user'); // Remove user data from localStorage
+        window.location.href = 'logout.html'; // Redirect to logout confirmation page
     }
-    </script>
-    
-        // Log out function
-        function logout() {
-            localStorage.removeItem('user'); // Remove user data from localStorage
-            window.location.href = 'logout.html'; // Redirect to logout confirmation page
-        }
-    </script>
+</script>
 </body>
 </html>
