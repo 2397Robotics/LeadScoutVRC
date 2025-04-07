@@ -50,7 +50,7 @@
             menuToggle.classList.toggle('vertical'); // Toggle button line orientation
         });
 
-        // JavaScript for form validation
+        // JavaScript for form validation and storing user data
         const signupForm = document.getElementById('signup-form');
 
         signupForm.addEventListener('submit', (event) => {
@@ -70,9 +70,17 @@
                 return;
             }
 
-            // Simulate successful signup
-            alert('Signup successful! Welcome to LeadScout.');
+            // Store user data in localStorage
+            const userData = {
+                teamNumber,
+                email,
+                password
+            };
+
+            localStorage.setItem('user', JSON.stringify(userData));
+            alert('Signup successful! You can now log in.');
             signupForm.reset(); // Clear the form
+            window.location.href = 'login.html'; // Redirect to login page
         });
     </script>
     <script src="sidebar.js"></script>
