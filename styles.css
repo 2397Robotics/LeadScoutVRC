@@ -37,7 +37,7 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: 
-        pageLoadHeading 0.5s linear forwards, /* Runs once */
+        pageLoadHeading 1s linear forwards, /* Runs once */
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
     animation-delay: 0s, 0s; /* No delay for both animations */
     position: absolute; /* Allows movement within the viewport */
@@ -47,7 +47,7 @@ body {
 }
 
 @keyframes pageLoadHeading {
-10% { 
+0% { 
     font-size: 30rem; 
     top: 50%; /* Start in the middle of the screen */
     transform: translate(-50%, -50%); /* Centered */
@@ -73,8 +73,9 @@ body {
     height: 140px; /* Height of the bar */
     background: #202020; /* Bar color */
     transform: translateX(-50%); /* Center horizontally */
-    animation: extendBar 1s ease-out forwards; /* Animation to extend the bar */
+    animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
 }
+
 @keyframes extendBar {
     0% { width: 0; /* Start with no width */}
     50% { width: 0; /* Stay at no width */}
@@ -115,4 +116,69 @@ body {
     .subheading {
         font-size: 1.2rem;
     }
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.menu-toggle .line {
+    width: 30px;
+    height: 4px;
+    background-color: #202020;
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+/* Change to vertical lines when clicked */
+.menu-toggle.vertical .line:nth-child(1) {
+    transform: rotate(90deg) translateY(-10px);
+}
+
+.menu-toggle.vertical .line:nth-child(2) {
+    transform: rotate(90deg);
+}
+
+.menu-toggle.vertical .line:nth-child(3) {
+    transform: rotate(90deg) translateY(10px);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially hidden off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: #202020;
+    color: white;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.5s ease; /* Smooth transition */
+    overflow-y: auto;
+    z-index: 999; /* Ensure it stays above other content */
+}
+
+.sidebar.open {
+    right: 0; /* Slide into view */
+}
+
+/* Sidebar Content */
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar p {
+    margin: 10px 0;
 }
