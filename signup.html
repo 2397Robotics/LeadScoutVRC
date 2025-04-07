@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="menu-toggle">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </button>
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
     <div class="signup-container">
         <h1>Signup</h1>
         <form id="signup-form">
@@ -28,6 +41,15 @@
     </div>
 
     <script>
+        // JavaScript to toggle the sidebar and button lines
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open'); // Toggle sidebar visibility
+            menuToggle.classList.toggle('vertical'); // Toggle button line orientation
+        });
+
         // JavaScript for form validation
         const signupForm = document.getElementById('signup-form');
 
