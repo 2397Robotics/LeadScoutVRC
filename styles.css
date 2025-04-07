@@ -51,6 +51,10 @@ body {
     font-size: 30rem; 
     top: 50%; /* Start in the middle of the screen */
     transform: translate(-50%, -50%); /* Centered */
+10% { 
+    font-size: 30rem; 
+    top: 50%; /* Start in the middle of the screen */
+    transform: translate(-50%, -50%); /* Centered */
 }
 100% { 
     font-size: 7rem; 
