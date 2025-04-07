@@ -70,8 +70,8 @@ body {
     top: 0;
     left: 50%;
     width: 0; /* Start with no width */
-    height: 120px; /* Height of the bar */
-    background: #bcdfff; /* Bar color */
+    height: 140px; /* Height of the bar */
+    background: #51abff; /* Bar color */
     transform: translateX(-50%); /* Center horizontally */
     animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
 }
