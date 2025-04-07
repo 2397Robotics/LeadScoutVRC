@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - LeadScout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Signup</h1>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="team-number">Team Number</label>
+                <input type="text" id="team-number" name="team-number" placeholder="Enter your team number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+        <p class="login-link">Already have an account? <a href="login.html">Log in here</a>.</p>
+    </div>
+
+    <script>
+        // JavaScript for form validation
+        const signupForm = document.getElementById('signup-form');
+
+        signupForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission
+
+            const teamNumber = document.getElementById('team-number').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!teamNumber || !email || !password) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            if (isNaN(teamNumber)) {
+                alert('Team number must be a valid number.');
+                return;
+            }
+
+            // Simulate successful signup
+            alert('Signup successful! Welcome to LeadScout.');
+            signupForm.reset(); // Clear the form
+        });
+    </script>
+</body>
+</html>
