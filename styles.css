@@ -37,7 +37,7 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: 
-        pageLoadHeading 1s linear forwards, /* Runs once */
+        pageLoadHeading 0.5s linear forwards, /* Runs once */
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
     animation-delay: 0s, 0s; /* No delay for both animations */
     position: absolute; /* Allows movement within the viewport */
@@ -73,7 +73,7 @@ body {
     height: 140px; /* Height of the bar */
     background: #202020; /* Bar color */
     transform: translateX(-50%); /* Center horizontally */
-    animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
+    animation: extendBar 1s ease-out forwards; /* Animation to extend the bar */
 }
 @keyframes extendBar {
     0% { width: 0; /* Start with no width */}
