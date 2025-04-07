@@ -32,16 +32,17 @@
 
     <script src="sidebar.js"></script>
     <script src="profile.js"></script>
-    <script>
-        // Display the logged-in user's team number
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        const teamNumberDisplay = document.getElementById('team-number-display');
-    
-        if (storedUser && storedUser.teamNumber) {
-            teamNumberDisplay.textContent = `Team Number: ${storedUser.teamNumber}`;
-        } else {
-            teamNumberDisplay.textContent = 'No team number found. Please log in.';
-        }
+   <script>
+    // Display the logged-in user's team number
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const teamNumberDisplay = document.getElementById('team-number-display');
+
+    if (storedUser && storedUser.teamNumber) {
+        teamNumberDisplay.textContent = `Team Number: ${storedUser.teamNumber}`;
+    } else {
+        teamNumberDisplay.textContent = 'No team number found. Please log in.';
+    }
+    </script>
     
         // Log out function
         function logout() {
