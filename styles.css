@@ -313,3 +313,34 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+/* Logout Page Styles */
+.logout-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logout-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #202020;
+}
+
+.logout-container p {
+    font-size: 1rem;
+    color: #202020;
+}
+
+.logout-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.logout-container a:hover {
+    text-decoration: underline;
+}
