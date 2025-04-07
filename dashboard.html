@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="profile-icon" id="profile-icon">
-    <img id="profile-picture" src="anonymous.png" alt="Profile Picture">
+        <img id="profile-picture" src="anonymous.png" alt="Profile Picture">
     </div>
     <button class="menu-toggle">
         <div class="line"></div>
@@ -21,36 +21,33 @@
             <button class="button" onclick="location.href='index.html'">Home</button>
             <button class="button" onclick="location.href='signup.html'">Signup</button>
             <button class="button" onclick="location.href='login.html'">Login</button>
+            <button class="button" onclick="logout()">Log Out</button>
         </div>
     </div>
 
     <div class="dashboard-container">
         <h1>Welcome to the Dashboard</h1>
-        <p>This is where you can manage your LeadScout account and view your data.</p>
+        <p id="team-number-display">Loading team number...</p>
     </div>
 
     <script src="sidebar.js"></script>
     <script src="profile.js"></script>
     <script>
-    // JavaScript to handle profile icon behavior
-    const profileIcon = document.getElementById('profile-icon');
-    const profilePicture = document.getElementById('profile-picture');
+        // Display the logged-in user's team number
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        const teamNumberDisplay = document.getElementById('team-number-display');
 
-    // Check if the user is logged in
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    if (storedUser && storedUser.email) {
-        // User is logged in, set profile picture to a user image
-        profilePicture.src = 'user-profile.png'; // Replace with the actual user profile picture URL
-        profileIcon.addEventListener('click', () => {
-            window.location.href = 'dashboard.html'; // Redirect to dashboard
-        });
-    } else {
-        // User is not logged in, set profile picture to anonymous
-        profilePicture.src = 'anonymous.png'; // Replace with the anonymous profile picture URL
-        profileIcon.addEventListener('click', () => {
-            window.location.href = 'login.html'; // Redirect to login page
-        });
-    }
+        if (storedUser && storedUser.teamNumber) {
+            teamNumberDisplay.textContent = `Team Number: ${storedUser.teamNumber}`;
+        } else {
+            teamNumberDisplay.textContent = 'No team number found. Please log in.';
+        }
+
+        // Log out function
+        function logout() {
+            localStorage.removeItem('user'); // Remove user data from localStorage
+            window.location.href = 'logout.html'; // Redirect to logout confirmation page
+        }
     </script>
 </body>
 </html>
