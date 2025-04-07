@@ -344,3 +344,42 @@ body {
 .logout-container a:hover {
     text-decoration: underline;
 }
+
+/* Match Scout Page Styles */
+.matchscout-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.matchscout-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.matchscout-buttons .button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.matchscout-buttons .button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+.matchscout-buttons .button:active {
+    transform: translateY(0); /* Reset lift effect on click */
+}
