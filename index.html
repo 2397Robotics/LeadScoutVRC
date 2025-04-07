@@ -20,5 +20,16 @@
         <h2>Sidebar Content</h2>
         <p>This is the content inside the sidebar.</p>
     </div>
+
+    <script>
+        // JavaScript to toggle the sidebar and button lines
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open'); // Toggle sidebar visibility
+            menuToggle.classList.toggle('vertical'); // Toggle button line orientation
+        });
+    </script>
 </body>
 </html>
