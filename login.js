@@ -22,9 +22,11 @@ loginForm.addEventListener('submit', (event) => {
 
     // Validate email and password
     if (storedUser.email === email && storedUser.password === password) {
-        alert('Login successful! Welcome back to LeadScout.');
-        loginForm.reset(); // Clear the form
-        // Redirect to a dashboard or home page (if applicable)
+        // Store a flag in localStorage to indicate the user is logged in
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // Redirect to dashboard
+        window.location.href = 'dashboard.html';
     } else {
         alert('Invalid email or password. Please try again.');
     }
