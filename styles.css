@@ -132,12 +132,16 @@ body {
     border: none;
     cursor: pointer;
     z-index: 1000; /* Ensure it stays above other elements */
+    border-radius: 50%; /* Make the button circular */
+    background-color: #f0f0f0; /* Optional background for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
 }
 
 .menu-toggle .line {
     width: 30px;
     height: 4px;
     background-color: #202020;
+    border-radius: 2px; /* Round the edges of the lines */
     transition: transform 0.3s ease, width 0.3s ease;
 }
 
@@ -161,17 +165,15 @@ body {
     right: -300px; /* Initially hidden off-screen */
     width: 300px;
     height: 100vh;
-    background-color: #202020;
+    background-color: #ffffff;
     color: white;
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     transition: right 0.5s ease; /* Smooth transition */
     overflow-y: auto;
     z-index: 999; /* Ensure it stays above other content */
-}
-
-.sidebar.open {
-    right: 0; /* Slide into view */
+    border-top-left-radius: 20px; /* Round the top-left corner */
+    border-bottom-left-radius: 20px; /* Round the bottom-left corner */
 }
 
 /* Sidebar Content */
