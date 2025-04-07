@@ -16,6 +16,245 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+@keyframes moveToTop {
+    0% {
+        top: 50%; /* Start at the center */
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        top: 10%; /* Move to the top */
+        transform: translate(-50%, 0);
+    }
+}
+
+.flowing-heading {
+    font-size: clamp(2rem, 10vw, 7rem); /* Responsive font size */
+    background: linear-gradient(
+        90deg,
+        #ff8181, #ffb779, #ffed7b,
+        #81ff81, #7cc2ff, #7e7eff,
+        #ff7cff, #ff8181
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientFlow 5s ease-in-out infinite, moveToTop 0.5s ease forwards;
+    position: absolute;
+    left: 50%;
+    top: 50%; /* Start at the center */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #ffffff;
+    color: #202020;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.5s ease;
+    overflow-y: auto;
+    z-index: 999;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.sidebar-buttons .button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-buttons .button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Profile Icon Styles */
+.profile-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Signup and Login Form Styles */
+.signup-container,
+.login-container {
+    max-width: 90%;
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.signup-container h1,
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #202020;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #202020;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.signup-button,
+.login-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover,
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+    }
+
+    .sidebar-buttons .button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .signup-container,
+    .login-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .signup-container h1,
+    .login-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .signup-button,
+    .login-button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flowing-heading {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+        top: 5%;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar-buttons .button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .profile-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f8f9fa;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 /* Responsive Heading */
 .flowing-heading {
     font-size: clamp(2rem, 10vw, 7rem); /* Responsive font size */
