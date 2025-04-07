@@ -71,11 +71,10 @@ body {
     left: 50%;
     width: 0; /* Start with no width */
     height: 140px; /* Height of the bar */
-    background: #51abff; /* Bar color */
+    background: #202020; /* Bar color */
     transform: translateX(-50%); /* Center horizontally */
     animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
 }
-
 @keyframes extendBar {
     0% { width: 0; /* Start with no width */}
     50% { width: 0; /* Stay at no width */}
