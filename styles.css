@@ -1,3 +1,6 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400;700&display=swap');
+
 /* Base Reset */
 * {
     margin: 0;
@@ -13,62 +16,181 @@ body {
     min-height: 100vh;
     background: #f8f9fa;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-@keyframes moveToTop {
-    0% {
-        top: 50%; /* Start at the center */
-        transform: translate(-50%, -50%);
-    }
-    100% {
-        top: 10%; /* Move to the top */
-        transform: translate(-50%, 0);
-    }
+    overflow: hidden;
 }
 
 .flowing-heading {
-    font-size: clamp(2rem, 10vw, 7rem); /* Responsive font size */
+    font-size: 30rem; 
+    /* Gradient Background - Make sure colors are properly separated */
     background: linear-gradient(
         90deg,
         #ff8181, #ffb779, #ffed7b,
         #81ff81, #7cc2ff, #7e7eff,
-        #ff7cff, #ff8181
+        #ff7cff, #ff8181  /* Last color should have stop position */
     );
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradientFlow 5s ease-in-out infinite, moveToTop 0.5s ease forwards;
+    background-size: 200% 200%; /* Adjusted for better visibility */
+    
+    /* Critical text clipping properties */
+    -webkit-background-clip: text !important; /* Force Webkit browsers */
+    background-clip: text !important;
+    color: transparent !important; /* Must be transparent */
+    
+    /* Animation - ensure it's properly applied */
+    animation: 
+        pageLoadHeading 1s linear forwards, /* Runs once */
+        gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
+    animation-delay: 0s, 0s; /* No delay for both animations */
+    position: absolute; /* Allows movement within the viewport */
+    left: 50%; /* Start horizontally centered */
+    top: 50%; /* Start vertically centered */
+    transform: translate(-50%, -50%); /* Center the element */
+}
+
+@keyframes pageLoadHeading {
+0% { 
+    font-size: 30rem; 
+    top: 50%; /* Start in the middle of the screen */
+    transform: translate(-50%, -50%); /* Centered */
+}
+100% { 
+    font-size: 7rem; 
+    top: 0%; /* Move to the top middle of the screen */
+    transform: translate(-50%, 0); /* Horizontally centered, no vertical offset */
+}
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header-bar {
     position: absolute;
+    top: 0;
     left: 50%;
-    top: 50%; /* Start at the center */
-    transform: translate(-50%, -50%);
-    text-align: center;
+    width: 0; /* Start with no width */
+    height: 140px; /* Height of the bar */
+    background: #202020; /* Bar color */
+    transform: translateX(-50%); /* Center horizontally */
+    animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
+}
+
+@keyframes extendBar {
+    0% { width: 0; /* Start with no width */}
+    50% { width: 0; /* Stay at no width */}
+    100% { width: 100vw; /* Extend to full screen width */}
+}
+
+/* Varients */
+.flowing-heading.ocean {
+    background: linear-gradient(90deg, 
+        #00c6ff, #0072ff, #0052d9, 
+        #0037a8, #002677, #0000ff);
+}
+
+.flowing-heading.fire {
+    background: linear-gradient(90deg, 
+        #ff0000, #ff6600, #ffcc00, 
+        #ff6600, #ff0000);
+}
+
+/* Supporting Content */
+.subheading {
+    font-size: 1.5rem;
+    color: #1a1919;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .flowing-heading {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .subheading {
+        font-size: 1.2rem;
+    }
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px; /* Adjusted size for a rounded square */
+    height: 50px; /* Adjusted size for a rounded square */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above other elements */
+    border-radius: 15px; /* Make the button a rounded square */
+    background-color: #f0f0f0; /* Optional background for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
+    gap: 4px;
+}
+
+.menu-toggle .line {
+    width: 30px;
+    height: 4px;
+    background-color: #202020;
+    border-radius: 50px; /* Make the lines fully rounded */
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+/* Change to vertical lines when clicked */
+.menu-toggle.vertical .line:nth-child(1) {
+    transform: rotate(90deg) translateY(-10px);
+}
+
+.menu-toggle.vertical .line:nth-child(2) {
+    transform: rotate(90deg);
+}
+
+.menu-toggle.vertical .line:nth-child(3) {
+    transform: rotate(90deg) translateY(10px);
 }
 
 /* Sidebar Styles */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -300px;
+    right: -300px; /* Initially hidden off-screen */
     width: 300px;
     height: 100vh;
     background-color: #ffffff;
-    color: #202020;
+    color: #202020; /* Ensure text is visible */
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: right 0.5s ease;
+    transition: right 0.5s ease; /* Smooth transition */
     overflow-y: auto;
-    z-index: 999;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    z-index: 999; /* Ensure it stays above other content */
+    border-top-left-radius: 20px; /* Round the top-left corner */
+    border-bottom-left-radius: 20px; /* Round the bottom-left corner */
 }
 
 .sidebar.open {
-    right: 0;
+    right: 0; /* Slide into view */
 }
 
+/* Sidebar Content */
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar p {
+    margin: 10px 0;
+}
+
+/* Sidebar Buttons */
 .sidebar-buttons {
     display: flex;
     flex-direction: column;
@@ -77,6 +199,7 @@ body {
 }
 
 .sidebar-buttons .button {
+    display: inline-block;
     padding: 12px 20px;
     font-size: 1rem;
     text-align: center;
@@ -91,38 +214,16 @@ body {
 
 .sidebar-buttons .button:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
-/* Profile Icon Styles */
-.profile-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+.sidebar-buttons .button:active {
+    transform: translateY(0); /* Reset lift effect on click */
 }
 
-.profile-icon:hover {
-    transform: scale(1.1);
-}
-
-.profile-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Signup and Login Form Styles */
-.signup-container,
-.login-container {
-    max-width: 90%;
-    width: 400px;
+/* ****************************** Signup Page Styles ************************************** */
+.signup-container {
+    max-width: 400px;
     margin: 50px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -131,8 +232,7 @@ body {
     text-align: center;
 }
 
-.signup-container h1,
-.login-container h1 {
+.signup-container h1 {
     margin-bottom: 20px;
     font-size: 2rem;
     color: #202020;
@@ -159,8 +259,7 @@ body {
     box-sizing: border-box;
 }
 
-.signup-button,
-.login-button {
+.signup-button {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
@@ -172,155 +271,23 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.signup-button:hover,
-.login-button:hover {
+.signup-button:hover {
     background-color: #0056b3;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 250px;
-    }
-
-    .sidebar-buttons .button {
-        font-size: 0.9rem;
-        padding: 10px 15px;
-    }
-
-    .profile-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .signup-container,
-    .login-container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .signup-container h1,
-    .login-container h1 {
-        font-size: 1.5rem;
-    }
-
-    .form-group input {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-
-    .signup-button,
-    .login-button {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
+.login-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #007bff;
 }
 
-@media (max-width: 480px) {
-    .flowing-heading {
-        font-size: clamp(1.5rem, 8vw, 3rem);
-        top: 5%;
-    }
-
-    .sidebar {
-        width: 200px;
-    }
-
-    .sidebar-buttons .button {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-
-    .profile-icon {
-        width: 35px;
-        height: 35px;
-    }
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-/* Base Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styles */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f8f9fa;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Responsive Heading */
-.flowing-heading {
-    font-size: clamp(2rem, 10vw, 7rem); /* Responsive font size */
-    background: linear-gradient(
-        90deg,
-        #ff8181, #ffb779, #ffed7b,
-        #81ff81, #7cc2ff, #7e7eff,
-        #ff7cff, #ff8181
-    );
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradientFlow 5s ease-in-out infinite;
-    position: absolute;
-    left: 50%;
-    top: 10%;
-    transform: translate(-50%, 0);
-    text-align: center;
-}
-
-/* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background-color: #ffffff;
-    color: #202020;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: right 0.5s ease;
-    overflow-y: auto;
-    z-index: 999;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-.sidebar.open {
-    right: 0;
-}
-
-.sidebar-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.sidebar-buttons .button {
-    padding: 12px 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #ffffff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.sidebar-buttons .button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+.login-link a:hover {
+    text-decoration: underline;
 }
 
 /* Profile Icon Styles */
@@ -338,7 +305,7 @@ body {
 }
 
 .profile-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 .profile-icon img {
@@ -347,11 +314,9 @@ body {
     object-fit: cover;
 }
 
-/* Signup and Login Form Styles */
-.signup-container,
-.login-container {
-    max-width: 90%;
-    width: 400px;
+/* Logout Page Styles */
+.logout-container {
+    max-width: 400px;
     margin: 50px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -360,108 +325,22 @@ body {
     text-align: center;
 }
 
-.signup-container h1,
-.login-container h1 {
+.logout-container h1 {
     margin-bottom: 20px;
     font-size: 2rem;
     color: #202020;
 }
 
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.logout-container p {
+    font-size: 1rem;
     color: #202020;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.logout-container a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.signup-button,
-.login-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.signup-button:hover,
-.login-button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 250px;
-    }
-
-    .sidebar-buttons .button {
-        font-size: 0.9rem;
-        padding: 10px 15px;
-    }
-
-    .profile-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .signup-container,
-    .login-container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .signup-container h1,
-    .login-container h1 {
-        font-size: 1.5rem;
-    }
-
-    .form-group input {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-
-    .signup-button,
-    .login-button {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .flowing-heading {
-        font-size: clamp(1.5rem, 8vw, 3rem);
-        top: 5%;
-    }
-
-    .sidebar {
-        width: 200px;
-    }
-
-    .sidebar-buttons .button {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-
-    .profile-icon {
-        width: 35px;
-        height: 35px;
-    }
+.logout-container a:hover {
+    text-decoration: underline;
 }
