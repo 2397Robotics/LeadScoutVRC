@@ -37,7 +37,7 @@ body {
     
     /* Animation - ensure it's properly applied */
     animation: 
-        pageLoadHeading 0.5s linear forwards, /* Runs once */
+        pageLoadHeading 1s linear forwards, /* Runs once */
         gradientFlow 5s ease-in-out infinite; /* Runs infinitely */
     animation-delay: 0s, 0s; /* No delay for both animations */
     position: absolute; /* Allows movement within the viewport */
@@ -73,7 +73,7 @@ body {
     height: 140px; /* Height of the bar */
     background: #202020; /* Bar color */
     transform: translateX(-50%); /* Center horizontally */
-    animation: extendBar 0.85s ease-out forwards; /* Animation to extend the bar */
+    animation: extendBar 2s ease-out forwards; /* Animation to extend the bar */
 }
 
 @keyframes extendBar {
@@ -122,8 +122,8 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Adjusted size for a rounded square */
+    height: 50px; /* Adjusted size for a rounded square */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -132,7 +132,7 @@ body {
     border: none;
     cursor: pointer;
     z-index: 1000; /* Ensure it stays above other elements */
-    border-radius: 50%; /* Make the button circular */
+    border-radius: 15px; /* Make the button a rounded square */
     background-color: #f0f0f0; /* Optional background for better visibility */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
 }
@@ -141,7 +141,7 @@ body {
     width: 30px;
     height: 4px;
     background-color: #202020;
-    border-radius: 2px; /* Round the edges of the lines */
+    border-radius: 50px; /* Make the lines fully rounded */
     transition: transform 0.3s ease, width 0.3s ease;
 }
 
@@ -166,7 +166,7 @@ body {
     width: 300px;
     height: 100vh;
     background-color: #ffffff;
-    color: white;
+    color: #202020; /* Ensure text is visible */
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     transition: right 0.5s ease; /* Smooth transition */
@@ -174,6 +174,10 @@ body {
     z-index: 999; /* Ensure it stays above other content */
     border-top-left-radius: 20px; /* Round the top-left corner */
     border-bottom-left-radius: 20px; /* Round the bottom-left corner */
+}
+
+.sidebar.open {
+    right: 0; /* Slide into view */
 }
 
 /* Sidebar Content */
