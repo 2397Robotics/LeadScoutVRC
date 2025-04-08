@@ -26,8 +26,8 @@
         </div>
     </div>
 
+    <h2 class="scouting-title">Autonomous Scouting</h2>
     <div class="scouting-frame">
-        <h2>Autonomous Scouting</h2>
         <div id="red-alliance-1" class="draggable">Red Alliance 1</div>
         <div id="red-alliance-2" class="draggable">Red Alliance 2</div>
         <div id="blue-alliance-1" class="draggable">Blue Alliance 1</div>
@@ -36,30 +36,6 @@
 
     <script src="sidebar.js"></script>
     <script src="profile.js"></script>
-    <script>
-        // JavaScript for draggable functionality
-        const draggables = document.querySelectorAll('.draggable');
-
-        draggables.forEach(draggable => {
-            draggable.addEventListener('mousedown', (e) => {
-                const rect = draggable.getBoundingClientRect();
-                const offsetX = e.clientX - rect.left;
-                const offsetY = e.clientY - rect.top;
-
-                function onMouseMove(event) {
-                    draggable.style.left = `${event.clientX - offsetX}px`;
-                    draggable.style.top = `${event.clientY - offsetY}px`;
-                }
-
-                function onMouseUp() {
-                    document.removeEventListener('mousemove', onMouseMove);
-                    document.removeEventListener('mouseup', onMouseUp);
-                }
-
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
-            });
-        });
-    </script>
+    <script src="advanced-scout.js"></script>
 </body>
 </html>
