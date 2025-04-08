@@ -397,7 +397,8 @@ body {
     width: 600px;
     height: 600px;
     margin: 0 auto;
-    background-color: #f0f0f0;
+    background: url('field.png') no-repeat center center; /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire frame */
     border: 2px solid #ccc;
     border-radius: 10px;
     position: relative;
