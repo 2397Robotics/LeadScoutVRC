@@ -410,7 +410,6 @@ body {
 .draggable {
     width: 150px;
     height: 50px;
-    background: linear-gradient(135deg, #ff7b7b, #ffb779);
     color: #ffffff;
     font-size: 1rem;
     font-weight: bold;
@@ -425,6 +424,16 @@ body {
 
 .draggable:active {
     cursor: grabbing;
+}
+
+/* Red Alliance Rectangles */
+#red-alliance-1, #red-alliance-2 {
+    background: linear-gradient(135deg, #ff4d4d, #ff9999);
+}
+
+/* Blue Alliance Rectangles */
+#blue-alliance-1, #blue-alliance-2 {
+    background: linear-gradient(135deg, #4d79ff, #99b3ff);
 }
 
 /* Initial Positions for Rectangles */
