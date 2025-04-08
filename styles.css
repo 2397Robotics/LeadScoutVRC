@@ -421,18 +421,17 @@ body {
 
 /* Draggable Rectangle Styles */
 .draggable {
-    width: 150px;
-    height: 50px;
+    display: inline-block; /* Allow the rectangle to resize based on content */
+    padding: 10px 20px; /* Add padding for better spacing */
     color: #ffffff;
     font-size: 1rem;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     border-radius: 8px;
     cursor: grab;
     position: absolute;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .draggable:active {
