@@ -383,3 +383,49 @@ body {
 .matchscout-buttons .button:active {
     transform: translateY(0); /* Reset lift effect on click */
 }
+
+/* Scouting Frame */
+.scouting-frame {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+.scouting-frame h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #202020;
+}
+
+/* Draggable Rectangle Styles */
+.draggable {
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    background: linear-gradient(135deg, #ff7b7b, #ffb779);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: grab;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: absolute;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+/* Positioning for Initial Placement */
+#red-alliance-1 { top: 100px; left: 50px; }
+#red-alliance-2 { top: 100px; left: 250px; }
+#blue-alliance-1 { top: 200px; left: 50px; }
+#blue-alliance-2 { top: 200px; left: 250px; }
