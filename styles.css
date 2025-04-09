@@ -454,6 +454,30 @@ body {
 #blue-alliance-1 { top: 500px; left: 50px; }
 #blue-alliance-2 { top: 500px; left: 400px; }
 
+/* Ring Styles */
+.red-ring, .blue-ring {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: grab;
+    z-index: 10;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%; /* Make the rings circular */
+}
+
+.red-ring {
+    background-image: url('red-ring.png');
+}
+
+.blue-ring {
+    background-image: url('blue-ring.png');
+}
+
+.red-ring:active, .blue-ring:active {
+    cursor: grabbing;
+}
+
 /* Trash Bin Styles */
 .trash-bin {
     position: absolute;
@@ -462,7 +486,7 @@ body {
     width: 60px;
     height: 60px;
     background-color: #ff4d4d;
-    border-radius: 50%;
+    border-radius: 15px; /* Make the trash bin a rounded square */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -505,15 +529,4 @@ body {
     transform: translateY(0);
 }
 
-/* Ring Styles */
-.red-ring, .blue-ring {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    cursor: grab;
-    z-index: 10;
-}
 
-.red-ring:active, .blue-ring:active {
-    cursor: grabbing;
-}
