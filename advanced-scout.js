@@ -33,10 +33,10 @@ function makeDraggable(element) {
             const elementRect = element.getBoundingClientRect();
 
             if (
-                elementRect.left >= trashRect.left &&
-                elementRect.right <= trashRect.right &&
-                elementRect.top >= trashRect.top &&
-                elementRect.bottom <= trashRect.bottom
+                elementRect.right > trashRect.left &&
+                elementRect.left < trashRect.right &&
+                elementRect.bottom > trashRect.top &&
+                elementRect.top < trashRect.bottom
             ) {
                 element.remove(); // Delete the element
             }
@@ -52,8 +52,7 @@ function makeDraggable(element) {
 
 // Add Red Ring
 addRedRingButton.addEventListener('click', () => {
-    const redRing = document.createElement('img');
-    redRing.src = 'red-ring.png';
+    const redRing = document.createElement('div');
     redRing.classList.add('draggable', 'red-ring');
     redRing.style.position = 'absolute';
     redRing.style.left = '10px';
@@ -64,8 +63,7 @@ addRedRingButton.addEventListener('click', () => {
 
 // Add Blue Ring
 addBlueRingButton.addEventListener('click', () => {
-    const blueRing = document.createElement('img');
-    blueRing.src = 'blue-ring.png';
+    const blueRing = document.createElement('div');
     blueRing.classList.add('draggable', 'blue-ring');
     blueRing.style.position = 'absolute';
     blueRing.style.left = '10px';
