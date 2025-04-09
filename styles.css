@@ -461,17 +461,6 @@ body {
     position: absolute;
     cursor: grab;
     z-index: 10;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 50%; /* Make the rings circular */
-}
-
-.red-ring {
-    background-image: url('red-ring.png');
-}
-
-.blue-ring {
-    background-image: url('blue-ring.png');
 }
 
 .red-ring:active, .blue-ring:active {
